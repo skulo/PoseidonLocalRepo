@@ -1,0 +1,175 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Főoldal</title>
+    <link rel="icon" type="image/png" href="/common/background.png" />
+
+    <meta
+      property="og:title"
+      content="Poseidon - A legjobb jegyzetek egy helyen"
+    />
+    <meta
+      property="og:description"
+      content="Tanulj a legjobb fájlokból. Ingyenes hozzáférés a legjobb tananyagokhoz, jegyzetekhez és kvízekhez."
+    />
+    <meta
+      property="og:image"
+      content="https://poseidongg.com/common/link.png"
+    />
+    <meta property="og:url" content="https://poseidongg.com/" />
+    <meta property="og:type" content="website" />
+
+    <meta
+      name="description"
+      content="Tanulj a legjobb fájlokból és készülj fel a vizsgáidra hatékonyan."
+    />
+
+    <link rel="stylesheet" href="/trending/stylet.css" />
+    <link rel="stylesheet" href="/common/navbar.css" />
+  </head>
+  <body>
+    <div class="main-container">
+      <header>
+        <nav class="navbar">
+          <div class="navbar-container">
+            <button class="hamburger" id="hamburger">☰</button>
+            <ul class="navbar-links" id="navbar-links">
+              <li class="logo-container">
+                <img src="/common/logowhite.png" class="logo" alt="logo" />
+                <img src="/common/textwhite.png" class="logo2" alt="logo2" />
+              </li>
+              <li><a href="#" id="logout">Kijelentkezés</a></li>
+
+              <li class="dropdown" id="userDropdown">
+                <button class="dropbtn" id="userDropdownBtn">
+                  Bejelentkezve mint: <span id="userName">Loading...</span>
+                  <img src="/common/arrow.png" class="arrow" alt="arrow" />
+                </button>
+                <div class="dropdown-content" id="userDropdownContent">
+                  <p class="header"></p>
+                  <p><strong>Email:</strong> <span id="userEmail"></span></p>
+                  <p>
+                    <strong>Jogosultság:</strong> <span id="userRole"></span>
+                  </p>
+                  <p>
+                    <strong>Jóváhagyásra váró fájlok:</strong>
+                    <span id="pendingDocs"></span>
+                  </p>
+                  <p>
+                    <strong>Kvíz tokenek</strong> <span id="userTokens"></span>
+                  </p>
+                  <p>
+                    <button id="deleteAccountBtn" class="delete-account-btn">
+                      Fiók törlése
+                    </button>
+                  </p>
+                </div>
+              </li>
+
+              <div id="deleteAccountModal" class="modal account-modal">
+                <div class="modal-content">
+                  <h2>Biztosan törölni szeretnéd a fiókodat?</h2>
+                  <p>
+                    Ezzel minden hozzád tartozó dokumentum és kvíz is törlésre
+                    kerül.
+                  </p>
+                  <div class="modal-buttons">
+                    <button id="confirmDeleteBtn" class="confirm-delete">
+                      Igen, törlés
+                    </button>
+                    <button id="cancelDeleteBtn" class="cancel-delete">
+                      Mégse
+                    </button>
+                  </div>
+                </div>
+              </div>
+
+              <li class="dropdown">
+                <button class="dropbtn">
+                  Katalógus<img
+                    src="/common/arrow.png"
+                    class="arrow"
+                    alt="arrow"
+                  />
+                </button>
+                <ul class="dropdown-content" id="semester-list"></ul>
+              </li>
+
+              <li><a href="/trending/trending.html">Főoldal</a></li>
+              <li><a href="/allquizzes/allquizzes.html">Kvízek</a></li>
+              <li>
+                <a href="/quizzes/quizzes.html" id="myquizresults"
+                  >Kvízeredményeim</a
+                >
+              </li>
+              <li>
+                <a href="/moderation/moderation.html" id="moderation"
+                  >Moderáció</a
+                >
+              </li>
+              <li>
+                <a href="/static/login.html" id="navbar-login">Bejelentkezés</a>
+              </li>
+            </ul>
+          </div>
+        </nav>
+      </header>
+      <div id="upload-sect" style="display: none"></div>
+
+      <div id="loader-container" class="preloader" style="display: none">
+        <div class="preloader__logo">
+          <div class="preloader__circle"></div>
+        </div>
+      </div>
+
+      <div class="carousel-container">
+        <div class="carousel">
+          <div class="slide">
+            <img src="/common/bemutato.png" alt="Slide 1" />
+          </div>
+          <div class="slide">
+            <img src="/common/register.png" alt="Slide 2" />
+          </div>
+          <div class="slide">
+            <img src="/common/kvizbemutato.png" alt="Slide 3" />
+          </div>
+        </div>
+        <button class="prev" onclick="moveSlide(-1)">&#10094;</button>
+        <button class="next" onclick="moveSlide(1)">&#10095;</button>
+      </div>
+
+      <section id="documents">
+        <div class="documents-container">
+          <div class="documents-column">
+            <h2 class="documents-category-title">Felkapottak</h2>
+            <div id="documents-list"></div>
+          </div>
+
+          <div class="documents-column">
+            <h2 class="documents-category-title">Legújabbak</h2>
+            <div id="recent-list"></div>
+          </div>
+        </div>
+      </section>
+    </div>
+    <script src="/common/user.js"></script>
+    <script src="/trending/trending.js"></script>
+
+    <p id="user_data" style="display: none"></p>
+
+    <script src="/common/navbar.js"></script>
+
+    <footer class="site-footer">
+      <div class="footer-container">
+        <p>
+          Kapcsolat:
+          <a href="mailto:help.poseidongg@gmail.com"
+            >help.poseidongg@gmail.com</a
+          >
+        </p>
+      </div>
+    </footer>
+  </body>
+</html>

@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Kvízeredményeim</title>
+    <link rel="icon" type="image/png" href="/common/background.png" />
+
+    <link rel="stylesheet" href="/quizzes/moderation.css" />
+    <link rel="stylesheet" href="/common/navbar.css" />
+  </head>
+  <body>
+    <div class="main-container">
+      <header>
+        <nav class="navbar">
+          <div class="navbar-container">
+            <button class="hamburger" id="hamburger">☰</button>
+            <ul class="navbar-links" id="navbar-links">
+              <li class="logo-container">
+                <img src="/common/logowhite.png" class="logo" alt="logo" />
+                <img src="/common/textwhite.png" class="logo2" alt="logo2" />
+              </li>
+              <li><a href="#" id="logout">Kijelentkezés</a></li>
+
+              <li class="dropdown" id="userDropdown">
+                <button class="dropbtn" id="userDropdownBtn">
+                  Bejelentkezve mint: <span id="userName">Loading...</span>
+                  <img src="/common/arrow.png" class="arrow" alt="arrow" />
+                </button>
+                <div class="dropdown-content" id="userDropdownContent">
+                  <p class="header"></p>
+                  <p><strong>Email:</strong> <span id="userEmail"></span></p>
+                  <p>
+                    <strong>Jogosultság:</strong> <span id="userRole"></span>
+                  </p>
+                  <p>
+                    <strong>Jóváhagyásra váró fájlok:</strong>
+                    <span id="pendingDocs"></span>
+                  </p>
+                  <p>
+                    <strong>Kvíz tokenek</strong> <span id="userTokens"></span>
+                  </p>
+                  <p>
+                    <button id="deleteAccountBtn" class="delete-account-btn">
+                      Fiók törlése
+                    </button>
+                  </p>
+                </div>
+              </li>
+
+              <div id="deleteAccountModal" class="modal account-modal">
+                <div class="modal-content">
+                  <h2>Biztosan törölni szeretnéd a fiókodat?</h2>
+                  <p>
+                    Ezzel minden hozzád tartozó dokumentum és kvíz is törlésre
+                    kerül.
+                  </p>
+                  <div class="modal-buttons">
+                    <button id="confirmDeleteBtn" class="confirm-delete">
+                      Igen, törlés
+                    </button>
+                    <button id="cancelDeleteBtn" class="cancel-delete">
+                      Mégse
+                    </button>
+                  </div>
+                </div>
+              </div>
+
+              <li class="dropdown">
+                <button class="dropbtn">
+                  Katalógus<img
+                    src="/common/arrow.png"
+                    class="arrow"
+                    alt="arrow"
+                  />
+                </button>
+                <ul class="dropdown-content" id="semester-list"></ul>
+              </li>
+
+              <li><a href="/trending/trending.html">Főoldal</a></li>
+              <li><a href="/allquizzes/allquizzes.html">Kvízek</a></li>
+              <li>
+                <a href="/quizzes/quizzes.html" id="myquizresults"
+                  >Kvízeredményeim</a
+                >
+              </li>
+              <li>
+                <a href="/moderation/moderation.html" id="moderation"
+                  >Moderáció</a
+                >
+              </li>
+              <li>
+                <a href="/static/login.html" id="navbar-login">Bejelentkezés</a>
+              </li>
+            </ul>
+          </div>
+        </nav>
+      </header>
+      <div id="upload-sect" style="display: none"></div>
+
+      <section id="quizzes">
+        <h2>Saját kvízeredményeim</h2>
+
+        <div class="pagination">
+          <img
+            id="prevPageTop"
+            src="/common/arrow-left.png"
+            alt="Előző oldal"
+          />
+          <span id="page-indicator-top">1</span>
+          <img
+            id="nextPageTop"
+            src="/common/arrow-right.png"
+            alt="Következő oldal"
+          />
+        </div>
+        <div id="quizzes-list"></div>
+      </section>
+
+      <div class="pagination">
+        <img
+          id="prevPageBottom"
+          src="/common/arrow-left.png"
+          alt="Előző oldal"
+        />
+        <span id="page-indicator-bottom">1</span>
+        <img
+          id="nextPageBottom"
+          src="/common/arrow-right.png"
+          alt="Következő oldal"
+        />
+      </div>
+    </div>
+    <footer class="site-footer">
+      <div class="footer-container">
+        <p>
+          Kapcsolat:
+          <a href="mailto:help.poseidongg@gmail.com"
+            >help.poseidongg@gmail.com</a
+          >
+        </p>
+      </div>
+    </footer>
+    <script src="/common/user.js"></script>
+    <script src="quizzes.js"></script>
+    <script src="/common/navbar.js"></script>
+  </body>
+</html>
